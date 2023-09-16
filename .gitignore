@@ -8,3 +8,5 @@ logs/
 airflow_env/
 
 .gitignore
+
+__pycache__/
