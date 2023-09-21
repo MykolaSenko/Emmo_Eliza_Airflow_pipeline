@@ -2,7 +2,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
-from utils.functions  import opening_csv_cleaning, split_types, clean2, training, id_scraper, property_scraper, json_to_csv
+from utils.functions  import opening_csv_cleaning, split_types, clean2, training, id_scraper, property_scraper, json_to_csv, run_git_command
 
 # The `default_args` dictionary is used to define the default configuration settings for the DAG
 # (Directed Acyclic Graph). These settings will be applied to all tasks within the DAG unless
@@ -49,8 +49,9 @@ with DAG(
     cleaner2 = PythonOperator(task_id="apart_clean", python_callable=clean2)
     
     train = PythonOperator(task_id="train", python_callable=training)
-    
-    git_add = BashOperator(task_id="git_add", bash_command="git add .")
+        
+    git_add = PythonOperator(task_id="git_add", python_callable=run_git_command, op_args=["git add ."])
+    #git_add = BashOperator(task_id="git_add", bash_command="git add .", working_directory="/home/flyingpig/codes/becode_projects/Emmo_Eliza_Airflow_pipeline")
     
     git_commit = BashOperator(task_id="git_commit", bash_command="git commit -m 'update airflow ¨{date}'")
     

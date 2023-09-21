@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 import re
 import signal
 import sys
+import os
 
 def opening_csv_cleaning():
     """
@@ -620,3 +621,12 @@ def property_scraper():
     save_to_json(immo_data)
     end = time.time()
     print("Time taken to scrape listings: {:.6f}s".format(end - start))
+
+
+def run_git_command(command):
+    # Change the working directory to the location of your Git repository
+    git_repo_directory = '/home/flyingpig/codes/becode_projects/Emmo_Eliza_Airflow_pipeline'
+    os.chdir(git_repo_directory)
+
+    # Run the git add command
+    os.system(command)
