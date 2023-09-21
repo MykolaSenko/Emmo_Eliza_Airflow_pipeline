@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
 from utils.functions  import opening_csv_cleaning, split_types, clean2, training, id_scraper, property_scraper, json_to_csv
 
@@ -48,5 +49,11 @@ with DAG(
     cleaner2 = PythonOperator(task_id="apart_clean", python_callable=clean2)
     
     train = PythonOperator(task_id="train", python_callable=training)
+    
+    git_add = BashOperator(task_id="git_add", bash_command="git add .")
+    
+    git_commit = BashOperator(task_id="git_commit", bash_command="git commit -m 'update airflow ¨{date}'")
+    
+    git_push = BashOperator(task_id="git_push", bash_command="git push")
 
-    scrape_id >> scrape_property >> save_csv >> cleaner >> split >> cleaner2 >> train
+    scrape_id >> scrape_property >> save_csv >> cleaner >> split >> cleaner2 >> train >>git_add >> git_commit >> git_push
