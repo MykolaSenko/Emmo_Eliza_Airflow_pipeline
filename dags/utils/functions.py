@@ -632,6 +632,8 @@ def run_git_command(command):
     For example, it could be "git add ." to add all changes to the staging area, or "git commit -m
     'Initial commit'" to make a commit with a specific message
     """
+    signal.signal(signal.SIGTERM, sigterm_handler)
+    
     git_repo_directory = '/home/flyingpig/codes/becode_projects/Emmo_Eliza_Airflow_pipeline'
     os.chdir(git_repo_directory)
 
