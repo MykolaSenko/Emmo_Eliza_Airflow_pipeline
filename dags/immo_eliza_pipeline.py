@@ -54,7 +54,7 @@ with DAG(
     
     git_commit = PythonOperator(task_id="git_commit", python_callable=run_git_command, op_args=['git commit -m "automated update from airflow {date}"'])
     
-    git_push = PythonOperator(task_id="git_push", python_callable=run_git_command, op_args=["git push"])
+    git_push = BashOperator(task_id='git_push', bash_command="utils/git_push.sh")
 
     scrape_id >> scrape_property >> save_csv >> cleaner >> split >> cleaner2 >> train >> git_add >> git_commit
     git_commit >> git_push  # Define a dependency between git_commit and git_push
