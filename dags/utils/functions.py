@@ -624,7 +624,14 @@ def property_scraper():
 
 
 def run_git_command(command):
-    # Change the working directory to the location of your Git repository
+    """
+    The function `run_git_command` changes the working directory to a specified Git repository and runs
+    a given Git command.
+    
+    :param command: The `command` parameter is a string that represents the Git command you want to run.
+    For example, it could be "git add ." to add all changes to the staging area, or "git commit -m
+    'Initial commit'" to make a commit with a specific message
+    """
     git_repo_directory = '/home/flyingpig/codes/becode_projects/Emmo_Eliza_Airflow_pipeline'
     os.chdir(git_repo_directory)
 
