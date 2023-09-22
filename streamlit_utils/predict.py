@@ -3,7 +3,6 @@ import pickle
 import numpy as np
 
 
-
 def open_reg(X_pred_pr):
     """
 Depending on which type of property we are predicting the function opens a saved regressor from a pickle file in "models" directory
@@ -25,7 +24,7 @@ def predict_new(X, reg):
     """
 Makes a prediction accroding trained earlier data.
 @param X: input data(np.array)
-@param reg: XGboos regressor
+@param reg: XGboost regressor
 @return: prediction data in json format
     """
 
