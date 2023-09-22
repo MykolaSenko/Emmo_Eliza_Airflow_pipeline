@@ -12,3 +12,5 @@ airflow_env/
 __pycache__/
 
 .vscode
+
+.ssh
