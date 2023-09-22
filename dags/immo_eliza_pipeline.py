@@ -56,5 +56,4 @@ with DAG(
     
     git_push = BashOperator(task_id='git_push', bash_command="utils/git_push.sh")
 
-    scrape_id >> scrape_property >> save_csv >> cleaner >> split >> cleaner2 >> train >> git_add >> git_commit
-    git_commit >> git_push  # Define a dependency between git_commit and git_push
+    scrape_id >> scrape_property >> save_csv >> cleaner >> split >> cleaner2 >> train >> git_add >> git_commit >> git_push
