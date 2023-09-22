@@ -52,7 +52,7 @@ with DAG(
         
     git_add = PythonOperator(task_id="git_add", python_callable=run_git_command, op_args=["git add ."])
     
-    git_commit = PythonOperator(task_id="git_commit", python_callable=run_git_command, op_args=['git commit -m "automated update from airflow {date}"'])
+    git_commit = PythonOperator(task_id="git_commit", python_callable=run_git_command, op_args=[f'git commit -m "automated update from airflow {datetime.now()}"'])
     
     git_push = BashOperator(task_id='git_push', bash_command="utils/git_push.sh")
 

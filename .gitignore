@@ -13,4 +13,4 @@ __pycache__/
 
 .vscode
 
-.ssh
+.ssh/

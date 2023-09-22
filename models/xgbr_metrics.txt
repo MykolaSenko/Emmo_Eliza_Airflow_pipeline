@@ -1,4 +1,4 @@
-Mean Squared Error (MSE) for apartments training set (XGB Regressor): 38731054835.05281
-Mean Absolute Error (MAE) for apartments testing set (XGB Regressor): 101573.60868105301
-Mean Squared Error (MSE) for houses training set (XGB Regressor): 45722678539.19659
-Mean Absolute Error (MAE) for houses testing set (XGB Regressor): 130402.74868896148
+Mean Squared Error (MSE) for apartments training set (XGB Regressor): 31463837389.887608
+Mean Absolute Error (MAE) for apartments testing set (XGB Regressor): 98404.71443580114
+Mean Squared Error (MSE) for houses training set (XGB Regressor): 39883827177.77247
+Mean Absolute Error (MAE) for houses testing set (XGB Regressor): 132461.69418809403
